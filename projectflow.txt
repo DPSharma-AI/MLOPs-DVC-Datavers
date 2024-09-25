@@ -6,3 +6,13 @@
 5. Now do "mkdir S3" (creates a new S3 directory)
 6. Now we do "dvc remote add -d myremote S3"
 7. Next "dvc add data/" 
+Now it will ask to do: ("git rm -r --cached 'data'" and "git commit -m "stop tracking data"")
+Because initially we were tracking data/ folder from git so now we remove it for DVC to handle.
+8. Again we do "dvc add data/" (creates data.dvc) then "git add .gitignore data.dvc"
+Now do the git status and dvc status --> Here DVC status clear but git status need to do some more 
+work like   
+     -- git add .
+     -- git commit -m "DVC initiated with data version1
+     -- git push origin main
+Now both DVC and git staus are clean , nothing to do.
+9. Now - "dvc commit" and then "dvc push"  ----->> for adding the data (csv-file) into S3 folder 
